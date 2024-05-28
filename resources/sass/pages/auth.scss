@@ -1,0 +1,62 @@
+@import "../variables";
+
+body {
+    background-color: var(--bs-body-bg);
+}
+
+a {
+    color: #dc3545;
+}
+
+#auth {
+    height: 100vh;
+    overflow-x: hidden;
+
+    #auth-right {
+        height: 100%;
+        background: url(/public/assets/static/images/bg/telu-bandung.jpg), $page-auth-right-bg;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    #auth-left {
+        padding: 5rem;
+
+        .auth-title {
+            color: #dc3545;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .auth-subtitle {
+            font-size: 1.5rem;
+            line-height: 2.5rem;
+            color: #a8aebb;
+        }
+        .auth-logo {
+            margin-bottom: 2rem;
+            img {
+                height: 4rem;
+            }
+        }
+        @media screen and (max-width: 1399.9px) {
+            padding: 3rem ;
+        }
+        @media screen and (max-width: 767px) {
+            padding: 5rem ;
+        }
+        @media screen and (max-width: 576px) {
+            padding: 5rem 3rem;
+        }
+    }
+}
+
+html[data-bs-theme="dark"] {
+    @import "../themes/dark/variables-dark";
+
+    #auth-right {
+        background: url(/public/assets/static/images/bg/telu-bandung.jpg), $page-auth-right-bg;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
