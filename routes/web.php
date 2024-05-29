@@ -5,7 +5,7 @@ use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/auth/login');
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => '/'], function() {

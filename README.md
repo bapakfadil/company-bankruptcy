@@ -1,26 +1,28 @@
-![Image](https://raw.githubusercontent.com/billalxcode/laravel-mazer-starter/main/screenshot.png)
+![Image](https://raw.githubusercontent.com/bapakfadil/company-bankruptcy/main/public/assets/static/images/samples/Screenshot%202024-05-28%20200729.png)
 
-<h1 align="center">Laravel + Mazer</h1>
-<p align="center">Mazer is a Admin Dashboard Template that can help you develop faster. We bring Mazer with Laravel starter project. It's completely free and you can use it in your projects.</p>
+<h1 align="center">Company Bankruptcy Predicition Using Grover Model</h1>
 
-## Main Template
+## Description
 
-If you want to check the original template in HTML5 and Bootstrap, [click here](https://github.com/zuramai/mazer) to open template repository.
+A simple web application to calcute a Company Bankruptcy based on their annual financial data using Grovel Model.
+
+Ongoing Development.
 
 ## Installation
 
 1. Clone this project
     ```bash
-    git clone https://github.com/billalxcode/laravel-mazer-starer laravel-mazer
-    cd laravel-mazer
+    git clone https://github.com/bapakfadil/company-bankruptcy company-bankruptcy
+    
+    cd company-bankruptcy
     ```
-2. Install dependencies
+2. Install Dependencies
 
     ```bash
     composer install
     ```
 
-    And javascript dependencies
+    And Javascript dependencies
 
     ```bash
     yarn install && yarn dev
@@ -30,10 +32,11 @@ If you want to check the original template in HTML5 and Bootstrap, [click here](
     npm install && npm run dev
     ```
 
-3. Set up Laravel configurations
+3. Set up Laravel Configurations
 
     ```bash
-    copy .env.example .env
+    rename .env.example into .env
+
     php artisan key:generate
     ```
 
@@ -42,21 +45,23 @@ If you want to check the original template in HTML5 and Bootstrap, [click here](
 5. Migrate database
 
     ```bash
+    php artisan migrate
+
+    #OR
+
     php artisan migrate --seed
     ```
 
 6. Serve the application
 
     ```bash
+    npm run dev
+
     php artisan serve
     ```
 
 7. Login credentials
-
-**Username:** mazer
-
-**Password:** password
-
-## Contributing
-
-Feel free to contribute and make a pull request.
+    ```bash
+    username : mazer
+    password : password
+    ```
