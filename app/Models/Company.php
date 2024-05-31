@@ -16,19 +16,20 @@ class Company extends Model
         'current_assets',
         'current_liabilities',
         'total_assets',
-        'ebit',
+        'gross_profit',
         'net_income'
     ];
 
     // Calculate the Grover Method G-Score
     public function calculateGScore()
     {
-        $workingCapitalToTotalAssets = ($this->current_assets - $this->current_liabilities) / $this->total_assets;
-        $ebitToTotalAssets = $this->ebit / $this->total_assets;
-        $returnOnAssets = $this->net_income / $this->total_assets;
+        $workingCapital = $this->current_assets - $this->current_liabilities;
+        $x1 = $workingCapital / $this->total_assets;
+        $x2 = $this->gross_profit / $this->total_assets;
+        $roa = $this->net_income / $this->total_assets;
 
-        // Grover Method formula, adjust coefficients as per the original formula
-        $gScore = 1.650 * $workingCapitalToTotalAssets + 3.404 * $ebitToTotalAssets + 0.366 * $returnOnAssets;
+        // Grover Method formula with updated coefficients
+        $gScore = (1.650 * $x1) + (3.404 * $x2) - (0.016 * $roa) + 0.057;
 
         return $gScore;
     }

@@ -16,7 +16,7 @@ class CreateCompaniesTable extends Migration
             $table->decimal('current_assets', 15, 2);
             $table->decimal('current_liabilities', 15, 2);
             $table->decimal('total_assets', 15, 2);
-            $table->decimal('ebit', 15, 2);
+            $table->decimal('gross_profit', 15, 2);
             $table->decimal('net_income', 15, 2);
             $table->timestamps();
         });

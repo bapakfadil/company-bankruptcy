@@ -30,13 +30,13 @@ class CompanyController extends Controller
             'current_assets' => 'required|numeric',
             'current_liabilities' => 'required|numeric',
             'total_assets' => 'required|numeric',
-            'ebit' => 'required|numeric',
+            'gross_profit' => 'required|numeric',
             'net_income' => 'required|numeric',
         ]);
 
         Company::create($request->all());
 
-        return redirect()->route('companies.index')->with('success', 'Company data added successfully.');
+        return redirect()->route('companies.index')->with('success', 'Data perusahaan berhasil ditambahkan.');
     }
 
     public function show(Company $company)
@@ -59,20 +59,19 @@ class CompanyController extends Controller
             'current_assets' => 'required|numeric',
             'current_liabilities' => 'required|numeric',
             'total_assets' => 'required|numeric',
-            'ebit' => 'required|numeric',
+            'gross_profit' => 'required|numeric',
             'net_income' => 'required|numeric',
         ]);
 
         $company->update($request->all());
 
-        return redirect()->route('companies.index')->with('success', 'Company data updated successfully.');
+        return redirect()->route('companies.index')->with('success', 'Data perusahaan berhasil diperbarui.');
     }
 
     public function destroy(Company $company)
     {
         $company->delete();
 
-        return redirect()->route('companies.index')->with('success', 'Company data deleted successfully.');
+        return redirect()->route('companies.index')->with('success', 'Data perusahaan berhasil dihapus.');
     }
 }
-
