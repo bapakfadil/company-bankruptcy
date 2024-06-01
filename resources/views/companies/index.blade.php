@@ -23,7 +23,6 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nama Perusahaan</th>
                                     <th>Kode Perusahaan</th>
                                     <th>Tahun</th>
                                     <th>Working Capital</th>
@@ -38,14 +37,13 @@
                                 @foreach ($companies as $company)
                                     <tr>
                                         <td>{{ $company->id }}</td>
-                                        <td>{{ $company->company_name }}</td>
                                         <td>{{ $company->company_code }}</td>
                                         <td>{{ $company->year_of_data }}</td>
-                                        <td>{{ number_format($company->working_capital, 3) }}</td>
-                                        <td>{{ number_format($company->x1, 3) }}</td>
-                                        <td>{{ number_format($company->x2, 3) }}</td>
-                                        <td>{{ number_format($company->roa, 3) }}</td>
-                                        <td>{{ number_format($company->g_score, 3) }}</td>
+                                        <td>{{ number_format($company->working_capital, 0, ',', '.') }}</td>
+                                        <td>{{ number_format($company->x1, 3, ',', '.') }}</td>
+                                        <td>{{ number_format($company->x2, 3, ',', '.') }}</td>
+                                        <td>{{ number_format($company->roa, 3, ',', '.') }}</td>
+                                        <td>{{ number_format($company->g_score, 3, ',', '.') }}</td>
                                         <td>
                                             <a href="{{ route('companies.show', $company->id) }}" class="btn btn-info btn-sm">Lihat</a>
                                             <a href="{{ route('companies.edit', $company->id) }}" class="btn btn-warning btn-sm">Edit</a>
