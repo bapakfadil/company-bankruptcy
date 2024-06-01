@@ -1,15 +1,15 @@
 <!-- resources/views/companies/index.blade.php -->
 <x-app-layout>
     <x-slot name="title">
-        Companies
+        Data Perusahaan
     </x-slot>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Companies
-                            <a href="{{ route('companies.create') }}" class="btn btn-primary float-end">Add Company</a>
+                        <h4>Data Perusahaan
+                            <a href="{{ route('companies.create') }}" class="btn btn-primary float-end">Tambah Perusahaan</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -23,11 +23,15 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Company Name</th>
-                                    <th>Company Code</th>
-                                    <th>Year of Data</th>
+                                    <th>Nama Perusahaan</th>
+                                    <th>Kode Perusahaan</th>
+                                    <th>Tahun</th>
+                                    <th>Working Capital</th>
+                                    <th>X1</th>
+                                    <th>X2</th>
+                                    <th>ROA</th>
                                     <th>G-Score</th>
-                                    <th>Actions</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,14 +41,18 @@
                                         <td>{{ $company->company_name }}</td>
                                         <td>{{ $company->company_code }}</td>
                                         <td>{{ $company->year_of_data }}</td>
-                                        <td>{{ number_format($company->g_score, 2) }}</td>
+                                        <td>{{ number_format($company->working_capital, 3) }}</td>
+                                        <td>{{ number_format($company->x1, 3) }}</td>
+                                        <td>{{ number_format($company->x2, 3) }}</td>
+                                        <td>{{ number_format($company->roa, 3) }}</td>
+                                        <td>{{ number_format($company->g_score, 3) }}</td>
                                         <td>
-                                            <a href="{{ route('companies.show', $company->id) }}" class="btn btn-info btn-sm">View</a>
+                                            <a href="{{ route('companies.show', $company->id) }}" class="btn btn-info btn-sm">Lihat</a>
                                             <a href="{{ route('companies.edit', $company->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('companies.destroy', $company->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this company?');">
+                                            <form action="{{ route('companies.destroy', $company->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Anda yakin ingin menghapus data ini?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                             </form>
                                         </td>
                                     </tr>

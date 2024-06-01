@@ -12,6 +12,10 @@ class CompanyController extends Controller
         $companies = Company::all();
         foreach ($companies as $company) {
             $company->g_score = $company->calculateGScore();
+            $company->working_capital = $company->current_assets - $company->current_liabilities;
+            $company->x1 = $company->working_capital / $company->total_assets;
+            $company->x2 = $company->gross_profit / $company->total_assets;
+            $company->roa = $company->net_income / $company->total_assets;
         }
         return view('companies.index', compact('companies'));
     }
@@ -42,6 +46,11 @@ class CompanyController extends Controller
     public function show(Company $company)
     {
         $company->g_score = $company->calculateGScore();
+        $company->working_capital = $company->current_assets - $company->current_liabilities;
+        $company->x1 = $company->working_capital / $company->total_assets;
+        $company->x2 = $company->gross_profit / $company->total_assets;
+        $company->roa = $company->net_income / $company->total_assets;
+
         return view('companies.show', compact('company'));
     }
 
