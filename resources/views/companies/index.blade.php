@@ -20,7 +20,7 @@
                         @endif
 
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                                 <tr>
                                     <th>ID</th>
                                     <th>Kode Perusahaan</th>
@@ -30,6 +30,7 @@
                                     <th>X2</th>
                                     <th>ROA</th>
                                     <th>G-Score</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -44,7 +45,8 @@
                                         <td>{{ number_format($company->x2, 3, ',', '.') }}</td>
                                         <td>{{ number_format($company->roa, 3, ',', '.') }}</td>
                                         <td>{{ number_format($company->g_score, 3, ',', '.') }}</td>
-                                        <td>
+                                        <td>{{ $company->status }}</td>
+                                        <td class="text-center">
                                             <a href="{{ route('companies.show', $company->id) }}" class="btn btn-info btn-sm">Lihat</a>
                                             <a href="{{ route('companies.edit', $company->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                             <form action="{{ route('companies.destroy', $company->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Anda yakin ingin menghapus data ini?');">

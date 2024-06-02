@@ -64,6 +64,10 @@
                                 <th>G-Score:</th>
                                 <td>{{ number_format($company->g_score, 3, ',', '.') }}</td>
                             </tr>
+                            <tr>
+                                <th>Status:</th>
+                                <td>{{ $company->status }}</td>
+                            </tr>
                         </table>
                         <a href="{{ route('companies.index') }}" class="btn btn-secondary">Kembali</a>
                     </div>

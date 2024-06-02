@@ -16,6 +16,7 @@ class CompanyController extends Controller
             $company->x1 = $company->working_capital / $company->total_assets;
             $company->x2 = $company->gross_profit / $company->total_assets;
             $company->roa = $company->net_income / $company->total_assets;
+            $company->status = $company->g_score > 0 ? 'Tidak Bangkrut' : 'Bangkrut';
         }
         return view('companies.index', compact('companies'));
     }
@@ -50,6 +51,7 @@ class CompanyController extends Controller
         $company->x1 = $company->working_capital / $company->total_assets;
         $company->x2 = $company->gross_profit / $company->total_assets;
         $company->roa = $company->net_income / $company->total_assets;
+        $company->status = $company->g_score > 0 ? 'Tidak Bangkrut' : 'Bangkrut';
 
         return view('companies.show', compact('company'));
     }
